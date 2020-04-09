@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Home from './components/Home'
 import Navbar from './components/Navbar'
@@ -7,13 +6,17 @@ import './home.css'
 import ConstellationsContainer from './containers/ConstellationsContainer'
 import UserContainer from './containers/UserContainer'
 import PlanetsContainer from './containers/PlanetsContainer'
+import {Route, Switch} from 'react-router-dom'
+import Login from './components/Login'
+import PlanetShowPage from './containers/PlanetShowPage'
 
 class App extends React.Component {
   constructor() {
     super()
     this.state = {
       planets: [],
-      constellations: []
+      constellations: [],
+      user: {}
     }
   }
 
@@ -30,13 +33,30 @@ class App extends React.Component {
     return (
       <div className="App">
         <Navbar />
-        <Home />
-        <ConstellationsContainer constellations={this.state.constellations}/>
-        <UserContainer />
-        <PlanetsContainer planets = {this.state.planets}/>
+        
+       
+       
+        <Switch>
+          <Route exact path = "/" component = {Home}/>
+          <Route exact path = "/planets" render = {() => <PlanetsContainer planets = {this.state.planets}/>} />
+          <Route exact path = "/constellations" render = {() => <ConstellationsContainer constellations = {this.state.constellations}/>}/>
+          <Route exact path = "/login" render = {() => <Login handleLoginSubmit = {this.handleLoginSubmit}/>}/>
+          <Route exact path = "/planets/:id" render = {(props) => {
+                      let planetId = props.match.params.id
+                      let foundPlanet = this.state.planets.find(p => p.id ===planetId)
+                      return <PlanetShowPage planet = {foundPlanet}/>}}/>
+          <Route exact path = "/users/:id" render = {() => <UserContainer />}/>
+        </Switch>
+
       </div>
     );
   }
+
+  handleLoginSubmit= (event) => {
+    event.preventDefault()
+    console.log("submitting")
+  }
+  
 }
 
 export default App;

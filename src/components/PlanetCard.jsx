@@ -3,7 +3,9 @@ import React from 'react';
 class PlanetCard extends React.Component {
  render() {
      return (
-         <div>Planet Card</div>
+         <div>
+             <h1>{this.props.planet.name}</h1>
+         </div>
      )
  }
 }

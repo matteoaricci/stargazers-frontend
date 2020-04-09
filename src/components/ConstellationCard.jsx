@@ -5,7 +5,7 @@ class ConstellationCard extends React.Component {
 
         render(){
             return(
-            <div>ConstellationCard</div>
+            <div className="card">{this.props.constellation.name}</div>
         )
     }
 }
