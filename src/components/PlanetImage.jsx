@@ -8,7 +8,7 @@ const PlanetImage = (props) => {
         return image
     }
     return(
-        <div><img src = {getPlanetImage(props.planet)} className="sign-image"/></div>
+        <div><img src = {getPlanetImage(props.planet)} alt={props.planet.name} className="sign-image"/></div>
     )
     
 }

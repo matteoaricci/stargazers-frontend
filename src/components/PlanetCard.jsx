@@ -15,7 +15,7 @@ class PlanetCard extends React.Component {
     render() {
         return (
             <div className="card clickable" onClick = {this.handleClick}>
-                <img src = {this.getPlanetImage(this.props.planet)} className="sign-image"/>
+                <img src = {this.getPlanetImage(this.props.planet)} alt = {this.props.planet.name} className="sign-image"/>
                 <h3>{this.props.planet.name}</h3>
             </div>
         )

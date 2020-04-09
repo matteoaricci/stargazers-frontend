@@ -20,7 +20,7 @@ class SignShowPage extends React.Component {
         if (this.props.sign) {
             return (
                 <div className="signs-container">
-                    <img className="sign-image" src={this.props.sign.image}/>
+                    <img className="sign-image" alt={this.props.sign.name} src={this.props.sign.image}/>
                     <h1>
                         {this.props.sign.name}
                     </h1>
