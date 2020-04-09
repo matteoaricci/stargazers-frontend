@@ -42,8 +42,9 @@ class App extends React.Component {
           <Route exact path = "/constellations" render = {() => <ConstellationsContainer constellations = {this.state.constellations}/>}/>
           <Route exact path = "/login" render = {() => <Login handleLoginSubmit = {this.handleLoginSubmit}/>}/>
           <Route exact path = "/planets/:id" render = {(props) => {
-                      let planetId = props.match.params.id
-                      let foundPlanet = this.state.planets.find(p => p.id ===planetId)
+                      console.log("What are router props?", props)
+                      let planetId = parseInt(props.match.params.id)
+                      let foundPlanet = this.state.planets.find(p => p.id === planetId)
                       return <PlanetShowPage planet = {foundPlanet}/>}}/>
           <Route exact path = "/users/:id" render = {() => <UserContainer />}/>
         </Switch>
