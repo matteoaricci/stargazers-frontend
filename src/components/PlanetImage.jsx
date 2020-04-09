@@ -1,11 +1,16 @@
 import React from 'react'
 
-class PlanetImage extends React.Component {
-    render() {
-        return(
-            <div>Planet Image</div>
-        )
+const PlanetImage = (props) => {
+    
+    let getPlanetImage = (planet) => {
+        let lowerCaseName = planet.name.toLowerCase()
+        let image = require(`../assets/pictures/planets/${lowerCaseName}-pixel.png`)
+        return image
     }
+    return(
+        <div><img src = {getPlanetImage(props.planet)} className="sign-image"/></div>
+    )
+    
 }
 
 export default PlanetImage

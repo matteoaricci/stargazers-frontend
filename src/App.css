@@ -44,3 +44,28 @@ html, body {
 .planets-container {
   margin: 5%;
 }
+
+.constellations-container {
+  margin: 5%;
+}
+
+.signs-container {
+  margin: 5%;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.sign-image {
+  max-width: 50%;
+}
+
+.sign-card {
+  padding: 5px;
+}
+
+.card {
+  background-color: black;
+  color: white;
+}

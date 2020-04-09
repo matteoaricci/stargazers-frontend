@@ -6,7 +6,7 @@ class PlanetsContainer extends React.Component {
     render() {
         return (
             <div className="card-columns planets-container">
-                {this.props.planets.map(planet => <PlanetCard planet = {planet} key = {planet.id}/>)}
+                {this.props.planets.map(planet => <PlanetCard planet = {planet} key={planet.id}/>)}
             </div>
             
         )

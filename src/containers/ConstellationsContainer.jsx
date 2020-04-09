@@ -6,7 +6,7 @@ class ConstellationsContainer extends React.Component {
     render() {
         let constellations = this.props.constellations
         return (
-            <div>
+            <div className="card-columns constellations-container clickable">
                 {constellations.map(cons => <ConstellationCard constellation={cons} key = {cons.id}/>)}
             </div>
         )

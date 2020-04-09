@@ -9,6 +9,9 @@ import PlanetsContainer from './containers/PlanetsContainer'
 import {Route, Switch} from 'react-router-dom'
 import Login from './components/Login'
 import PlanetShowPage from './containers/PlanetShowPage'
+import ConstellationShowPage from './containers/ConstellationShowPage'
+import SignsContainer from './containers/SignsContainer'
+import SignShowPage from './containers/SignShowPage'
 
 class App extends React.Component {
   constructor() {
@@ -16,6 +19,7 @@ class App extends React.Component {
     this.state = {
       planets: [],
       constellations: [],
+      signs: [],
       user: {}
     }
   }
@@ -28,6 +32,10 @@ class App extends React.Component {
     fetch('http://localhost:3000/planets')
     .then(resp => resp.json())
     .then(planets=> this.setState({planets: planets}))
+
+    fetch("http://localhost:3000/signs")
+    .then(resp => resp.json())
+    .then(signs => this.setState({signs: signs}))
   }
   render() {
     return (
@@ -45,8 +53,19 @@ class App extends React.Component {
                       console.log("What are router props?", props)
                       let planetId = parseInt(props.match.params.id)
                       let foundPlanet = this.state.planets.find(p => p.id === planetId)
-                      return <PlanetShowPage planet = {foundPlanet}/>}}/>
+                      return <PlanetShowPage routerProps = {props} planet = {foundPlanet}/>}}/>
+          <Route exact path = "/constellations/:id" render = {(props) => {
+                      console.log("What are router props?", props)
+                      let constellationId = parseInt(props.match.params.id)
+                      let foundConstellation = this.state.constellations.find(c => c.id === constellationId)
+                      return <ConstellationShowPage constellation = {foundConstellation}/>}}/>
+          <Route exact path = "/signs/:id" render = {(props) => {
+                      console.log("What are router props?", props)
+                      let signId = parseInt(props.match.params.id)
+                      let foundSign = this.state.signs.find(s => s.id === signId)
+                      return <SignShowPage sign = {foundSign}/>}}/>
           <Route exact path = "/users/:id" render = {() => <UserContainer />}/>
+          <Route exact path = "/signs" render= { () => <SignsContainer signs = {this.state.signs} /> } />
         </Switch>
 
       </div>

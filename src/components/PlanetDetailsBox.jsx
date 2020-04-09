@@ -1,15 +1,15 @@
 import React from 'react'
 
-class PlanetDetailsBox extends React.Component {
-    render () {
-        return (
-            <div>
-                <h1>{this.props.planet.name}</h1>
-                <h2>Description: {this.props.planet.description}</h2>
+const PlanetDetailsBox = (props) => {
+    
+    return (
+        <div>
+            <h1>{props.planet.name}</h1>
+            <h2>Description: {props.planet.description}</h2>
                 
-            </div>
+        </div>
         )
-    }
+    
 }
 
 export default PlanetDetailsBox

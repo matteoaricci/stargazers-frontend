@@ -3,11 +3,16 @@ import PlanetImage from '../components/PlanetImage'
 import PlanetDetailsBox from '../components/PlanetDetailsBox'
 
 const PlanetShowPage = (props) => {
-        console.log("What props are in the show page?",props)
+
+    if (props.planet) {
         return (
             <div>
-               <h1>Hello</h1>
-        </div>)
-    }
+            <PlanetImage planet = {props.planet} />
+            <PlanetDetailsBox planet = {props.planet} />
+            </div>
+        )
+    } else {
+        return null
+    }}
 
 export default PlanetShowPage

@@ -14,6 +14,9 @@ class Navbar extends React.Component {
                         <a className="nav-link" href="/planets">Planets</a>
                     </div>
                     <div className="nav-item active">
+                        <a className="nav-link" href="/signs">Signs</a>
+                    </div>
+                    <div className="nav-item active">
                         <a className="nav-link" href="/login">Login</a>
                     </div>
                 </nav>
