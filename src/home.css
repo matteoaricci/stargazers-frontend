@@ -1,3 +1,7 @@
 .welcome-page {
     background-color: black;
 }
+
+h1#welcome-banner {
+    color: whitesmoke;
+}

@@ -1,8 +1,8 @@
 import React from "react";
-import '../Welcome.css';
+import '../home.css';
 
 
-class Welcome extends React.Component {
+class Home extends React.Component {
 
     render() {
         return (
@@ -13,4 +13,4 @@ class Welcome extends React.Component {
     }
 }
 
-export default Welcome
+export default Home
