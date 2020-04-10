@@ -17,7 +17,7 @@ class Home extends React.Component {
                 <div className="welcome-page">
                     <h1 id="welcome-banner">Welcome!</h1>
                     <div onMouseEnter = {this.handleMouseEnter} onMouseLeave = {this.handleMouseLeave}> 
-                        <img src={require(`../assets/pictures/constellations/${this.state.currentImage}.png`)} alt = "big dipper"/>
+                        <img className="front-page-constellations" src={require(`../assets/pictures/constellations/${this.state.currentImage}.png`)} alt = "big dipper"/>
                     </div>
                 </div>
                 <div>

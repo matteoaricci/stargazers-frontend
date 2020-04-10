@@ -69,3 +69,7 @@ html, body {
   background-color: black;
   color: white;
 }
+
+.front-page-constellations {
+  max-width: 100%;
+}
