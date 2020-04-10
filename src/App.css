@@ -37,8 +37,18 @@
   }
 }
 
+@font-face {
+  font-family: 'diary_of_an_8-bit_mageregular';
+  src: url('./assets/fonts/diaryofan8bitmage-lydd-webfont.woff2') format('woff2'),
+       url('./assets/fonts/diaryofan8bitmage-lydd-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
 html, body {
   background-color: black;
+  font-family: 'diary_of_an_8-bit_mageregular';
 }
 
 .planets-container {
