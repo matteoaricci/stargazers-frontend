@@ -10,7 +10,7 @@ class Navbar extends React.Component {
                 <div className="space stars2"></div>
                 <div className="space stars3"></div>
                 <div>
-                    <nav className="navbar navbar-expand-lg navbar-light bg-transparent">
+                    <nav className="navbar navbar-expand-lg bg-transparent">
                         <a className="navbar-brand" href="/"><img src="https://www.pngarts.com/files/3/Mario-Star-PNG-Image.png" width="30" height="30" className="d-inline-block align-top" alt="" /> Stargazers</a>
                         <div className="nav-item active">
                             <a className="nav-link" href="/constellations">Constellations</a>
