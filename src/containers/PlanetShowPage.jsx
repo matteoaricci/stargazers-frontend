@@ -7,8 +7,8 @@ const PlanetShowPage = (props) => {
     if (props.planet) {
         return (
             <div>
-            <PlanetImage planet = {props.planet} />
-            <PlanetDetailsBox planet = {props.planet} />
+                <PlanetImage planet = {props.planet} />
+                <PlanetDetailsBox planet = {props.planet} />
             </div>
         )
     } else {

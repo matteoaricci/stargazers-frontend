@@ -11,7 +11,7 @@ class ConstellationCard extends React.Component {
             return(
             <div className="card" onClick={this.handleClick}>
                 <img src = {require(`../assets/pictures/constellations/${this.props.constellation.name.toLowerCase().split(" ").join("-")}-pixel.png`)} alt = {this.props.constellation.name}/>
-                </div>
+            </div>
         )
     }
 }
