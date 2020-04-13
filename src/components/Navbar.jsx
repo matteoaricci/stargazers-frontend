@@ -3,14 +3,7 @@ import '../Navbar.sass'
 
 class Navbar extends React.Component {
 
-    componentDidMount() {
-        // useEffect(() => {
-        //     window.scrollTo(0, 0)
-        //   }, [])
-    }
-
     render() {
-        console.log(this.props.user)
         return (
             <div id="nav-bar-body">
                 <div className="space stars1"></div>
@@ -28,9 +21,9 @@ class Navbar extends React.Component {
                         <div className="nav-item active">
                             <a className="nav-link" href="/signs">Signs</a>
                         </div>
-                        {this.props.user.name ? <div className="nav-item active"><a className="nav-link" href="/profile">My Profile</a></div> :
+                        {this.props.user ? <div className="nav-item active"><a className="nav-link" href="/profile">My Profile</a></div> :
                             null}
-                        {this.props.user.name ? <div className="nav-item active"><a onClick={this.props.logout} className="nav-link" href="#">Logout</a></div> :
+                        {this.props.user ? <div className="nav-item active"><a onClick={this.props.logout} className="nav-link" href="/login">Logout</a></div> :
                             <div className="nav-item active"><a className="nav-link" href="/login">Login</a></div>
                         }
                     </nav>

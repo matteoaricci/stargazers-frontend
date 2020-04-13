@@ -1,6 +1,7 @@
 import React from 'react';
 
 class Login extends React.Component {
+
     render() {
         return(<div>
             <h1>Login</h1>
@@ -11,7 +12,11 @@ class Login extends React.Component {
             <input name="typedPassword" type="password" value={this.props.typedPassword} onChange={this.props.handleOnChange}></input>
             <input type="submit"></input>
             </form>
+            <button onClick = {this.handleOnClick}>Create Account</button>
         </div>)
+    }
+    handleOnClick = () => {
+        window.location = `http://localhost:3001/signup`
     }
 }
 

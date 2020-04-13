@@ -10,7 +10,6 @@ import {Route, Redirect, Switch} from 'react-router-dom'
 import Login from './components/Login'
 import PlanetShowPage from './containers/PlanetShowPage'
 import ConstellationShowPage from './containers/ConstellationShowPage'
-import SignsContainer from './containers/SignsContainer'
 import SignShowPage from './containers/SignShowPage'
 import CreatePage from './containers/CreatePage';
 import Signup from './components/Signup'
@@ -24,7 +23,7 @@ class App extends React.Component {
       signs: [],
       typedUsername: "",
       typedPassword: "",
-      user: {}
+      user: null
     }
   }
 
@@ -67,25 +66,21 @@ class App extends React.Component {
           <Route exact path = "/planets" render = {() => <PlanetsContainer planets = {this.state.planets}/>} />
           <Route exact path = "/create" render = {() => <CreatePage />} />
           <Route exact path = "/constellations" render = {() => <ConstellationsContainer constellations = {this.state.constellations}/>}/>
-          <Route exact path = "/login" render = {() => <Login handleLoginSubmit = {this.handleLoginSubmit} typedUsername= {this.state.typedUsername} typedPassword = {this.state.typedPassword} handleOnChange = {this.handleOnChange}/>}/>
+          <Route exact path = "/login" render = {() => (this.state.user ? <Redirect to="/profile"/> : <Login handleLoginSubmit = {this.handleLoginSubmit} typedUsername= {this.state.typedUsername} typedPassword = {this.state.typedPassword} handleOnChange = {this.handleOnChange}/>)}/>
           <Route exact path = "/planets/:id" render = {(props) => {
-                      console.log("What are router props?", props)
                       let planetId = parseInt(props.match.params.id)
                       let foundPlanet = this.state.planets.find(p => p.id === planetId)
-                      return <PlanetShowPage routerProps = {props} planet = {foundPlanet}/>}}/>
+                      return <PlanetShowPage user={this.state.user} routerProps = {props} planet = {foundPlanet}/>}}/>
           <Route exact path = "/constellations/:id" render = {(props) => {
-                      console.log("What are router props?", props)
                       let constellationId = parseInt(props.match.params.id)
                       let foundConstellation = this.state.constellations.find(c => c.id === constellationId)
                       return <ConstellationShowPage constellation = {foundConstellation}/>}}/>
           <Route exact path = "/signs/:id" render = {(props) => {
-                      console.log("What are router props?", props)
                       let signId = parseInt(props.match.params.id)
                       let foundSign = this.state.signs.find(s => s.id === signId)
                       return <SignShowPage sign = {foundSign}/>}}/>
-          <Route exact path = "/profile" render = {() => (this.state.user.id !== undefined ? <Profile user={this.state.user}/> :
-            <Redirect to="/login"/>)}/>
-          <Route exact path = "/signup" render= { () => <Signup handleSignup={this.handleSignup} /> } />
+          <Route exact path = "/profile" render = {() => <Profile user={this.state.user}/> }/>
+          <Route exact path = "/signup" render= { () => <Signup handleSignup={this.handleSignup} signs={this.state.signs} /> } />
         </Switch>
       </div>
     );
@@ -124,7 +119,7 @@ class App extends React.Component {
   logout = () => {
     localStorage.removeItem("jwt")
     this.setState({
-      user: {}
+      user: null
     })
   }
 

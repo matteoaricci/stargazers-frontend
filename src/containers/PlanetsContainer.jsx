@@ -3,6 +3,10 @@ import PlanetCard from '../components/PlanetCard';
 
 class PlanetsContainer extends React.Component {
 
+favoritePlanet = () => {
+
+}
+
     render() {
         return (
             <div className="card-columns planets-container">

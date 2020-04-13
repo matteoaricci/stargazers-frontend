@@ -77,10 +77,11 @@ html, body {
 }
 
 .card {
-  background-color: black;
+  background-color: transparent;
   color: white;
 }
 
 .front-page-constellations {
   max-width: 100%;
+  border: red;
 }
