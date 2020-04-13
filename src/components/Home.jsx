@@ -28,7 +28,7 @@ class Home extends React.Component {
     }
 
     handleMouseEnter = () => {
-        this.setState({currentImage: "big-dipper-pixel-connected"})
+        this.setState({currentImage: "the-big-dipper-pixel-connected"})
     }
 
     handleMouseLeave = () => {
