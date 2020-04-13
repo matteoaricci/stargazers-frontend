@@ -6,9 +6,9 @@ class Navbar extends React.Component {
     render() {
         return (
             <div id="nav-bar-body">
-                <div class="space stars1"></div>
-                <div class="space stars2"></div>
-                <div class="space stars3"></div>
+                <div className="space stars1"></div>
+                <div className="space stars2"></div>
+                <div className="space stars3"></div>
                 <div>
                     <nav className="navbar navbar-expand-lg navbar-light bg-transparent">
                         <a className="navbar-brand" href="/"><img src="https://www.pngarts.com/files/3/Mario-Star-PNG-Image.png" width="30" height="30" className="d-inline-block align-top" alt="" /> Stargazers</a>
