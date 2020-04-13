@@ -12,6 +12,7 @@ import PlanetShowPage from './containers/PlanetShowPage'
 import ConstellationShowPage from './containers/ConstellationShowPage'
 import SignsContainer from './containers/SignsContainer'
 import SignShowPage from './containers/SignShowPage'
+import CreatePage from './containers/CreatePage';
 
 class App extends React.Component {
   constructor() {
@@ -47,6 +48,7 @@ class App extends React.Component {
         <Switch>
           <Route exact path = "/" component = {Home}/>
           <Route exact path = "/planets" render = {() => <PlanetsContainer planets = {this.state.planets}/>} />
+          <Route exact path = "/create" render = {() => <CreatePage />} />
           <Route exact path = "/constellations" render = {() => <ConstellationsContainer constellations = {this.state.constellations}/>}/>
           <Route exact path = "/login" render = {() => <Login handleLoginSubmit = {this.handleLoginSubmit}/>}/>
           <Route exact path = "/planets/:id" render = {(props) => {
