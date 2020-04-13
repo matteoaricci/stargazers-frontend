@@ -7,7 +7,7 @@ class Home extends React.Component {
     constructor() {
         super()
         this.state = {
-            currentImage: "big-dipper-pixel"
+            currentImage: "the-big-dipper-pixel"
         }
     }
 
@@ -32,7 +32,7 @@ class Home extends React.Component {
     }
 
     handleMouseLeave = () => {
-        this.setState({currentImage: "big-dipper-pixel"})
+        this.setState({currentImage: "the-big-dipper-pixel"})
     }
 }
 
