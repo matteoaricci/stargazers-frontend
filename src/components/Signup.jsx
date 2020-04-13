@@ -56,7 +56,3 @@ class Signup extends React.Component {
         event.preventDefault()
         let yearMonthDay = event.target.birthday.value.split("-")
         this.figureOutSign(yearMonthDay[1], yearMonthDay[2])
-    }
-}
-
-export default Signup;

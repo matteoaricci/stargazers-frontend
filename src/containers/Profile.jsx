@@ -8,7 +8,3 @@ class Profile extends React.Component {
                 <h1>{this.props.user.name}</h1>
             </div>
         )
-    }
-}
-
-export default Profile;
