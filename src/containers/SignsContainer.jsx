@@ -19,7 +19,7 @@ class SignsContainer extends React.Component {
     render() {
         return (
             <div>
-                <Searchbar onChange={this.onChange} />
+                <Searchbar onChange={this.onChange} placeholderPhrase= "Search by Sign Name"/>
                 <div className="card-columns signs-container">
                     {this.props.signs.filter(sign => sign.name.toLowerCase().includes(this.state.searchTerm)).map(sign => <SignCard sign={sign} key={sign.name}/>)}
                 </div>

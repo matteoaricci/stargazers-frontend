@@ -8,7 +8,7 @@ const ConstellationShowPage = (props) => {
         return (
             <div>
                 <ConstellationImage constellation = {props.constellation} />
-                <ConstellationDetailsBox constellation = {props.constellation} user={props.user} />
+                <ConstellationDetailsBox updateFavoriteConstellations = {props.updateFavoriteConstellations} constellation = {props.constellation} user={props.user} favConstellations = {props.favConstellations} />
             </div>
         )
     } else {

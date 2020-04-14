@@ -20,7 +20,7 @@ class ConstellationsContainer extends React.Component {
         let constellations = this.props.constellations
         return (
             <div>
-                <Searchbar onChange={this.onChange}/>
+                <Searchbar onChange={this.onChange} placeholderPhrase = "Search the Galaxy"/>
                 <div className="card-columns constellations-container clickable">
                     {constellations.filter(constellation => constellation.name.toLowerCase().includes(this.state.searchTerm)).map(cons => <ConstellationCard constellation={cons} key={cons.id}/>)}
                 </div>

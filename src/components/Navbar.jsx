@@ -21,12 +21,12 @@ class Navbar extends React.Component {
                         <div className="nav-item active">
                             <a className="nav-link" href="/signs">Signs</a>
                         </div>
-                        {this.props.user ? <div className="nav-item active"><a className="nav-link" href="/profile">My Profile</a></div> :
+                        {this.props.user ? <div className="nav-item active ml-auto"><a className="nav-link" href="/profile">My Profile</a></div> :
                             null}
-                        {this.props.user ? <div className="nav-item active"><a className="nav-link" href="/users">Registered Gazers</a></div> :
+                        {this.props.user ? <div className="nav-item active ml-auto"><a className="nav-link" href="/users">Registered Gazers</a></div> :
                             null}
-                        {this.props.user ? <div className="nav-item active"><a onClick={this.props.logout} className="nav-link" href="/login">Logout</a></div> :
-                            <div className="nav-item active"><a className="nav-link" href="/login">Login</a></div>
+                        {this.props.user ? <div className="nav-item active ml-auto"><a onClick={this.props.logout} className="nav-link" href="/login">Logout</a></div> :
+                            <div className="nav-item active ml-auto"><a className="nav-link" href="/login">Login</a></div>
                         }
                     </nav>
                 </div>

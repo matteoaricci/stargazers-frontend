@@ -16,11 +16,17 @@ class SignShowPage extends React.Component {
         return `${startMonth} ${sign.start_day} - ${endMonth} ${sign.end_day}`
     }
 
+    getSignImage = (sign) => {
+        let lowerCaseName = sign.name.toLowerCase()
+        let image = require(`../assets/pictures/signs/${lowerCaseName}-pixel.png`)
+        return image
+    }
+
     render() {
         if (this.props.sign) {
             return (
                 <div className="signs-container">
-                    <img className="sign-image" alt={this.props.sign.name} src={this.props.sign.image}/>
+                    <img className="sign-images" alt={this.props.sign.name} src = {this.getSignImage(this.props.sign)}/>
                     <h1>
                         {this.props.sign.name}
                     </h1>

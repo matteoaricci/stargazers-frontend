@@ -20,7 +20,7 @@ class PlanetsContainer extends React.Component {
     render() {
         return (
             <div>
-                <Searchbar onChange={this.onChange}/>
+                <Searchbar onChange={this.onChange} placeholderPhrase = "Search the Galaxy"/>
                 <div className="card-columns planets-container">
                     {this.props.planets.filter(planet => planet.name.toLowerCase().includes(this.state.searchTerm)).map(planet => <PlanetCard planet = {planet} key={planet.id}/>)}
                 </div>

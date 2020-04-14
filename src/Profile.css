@@ -1,0 +1,64 @@
+.profile-banner {
+    text-align: left;
+    margin-left: 5%;
+    margin-top: 2%;
+    background-color: rgba(98, 98, 98, 0.329);
+    padding: 1%;
+}
+
+.profile-sign {
+    text-align: left;
+    margin-top: 2%;
+    margin-left: 7%
+}
+
+.profile-bio {
+    text-align: left;
+    margin-top: 2%;
+    margin-left: 7%
+}
+
+.astral-collection {
+    padding-top: 5%;
+    margin-left: 5%;
+}
+
+.fav-planets-list {
+    text-align: left;
+    margin-left: 5%;
+    
+}
+
+.fav-const-list {
+    text-align: left;
+    margin-left: 5%;
+}
+
+.astral-banner {
+    margin-bottom: 5%;
+    text-align: left;
+    background-color: rgba(98, 98, 98, 0.329);
+    padding: 1%;
+}
+
+.const-item {
+    text-align: left;
+    margin-left: 5%;
+    font-size: larger;
+    margin-top: 1%;
+}
+
+.planet-item {
+    text-align: left;
+    margin-left: 5%;
+    font-size: larger;
+    margin-top: 1%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+
+.delete-buttons {
+    margin-left: 5%;
+    margin-right: 5%;
+    font-size: small;
+}

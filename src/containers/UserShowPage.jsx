@@ -13,7 +13,7 @@ class UserShowPage extends React.Component {
                 <h2>Sign: <Link to={`/signs/${this.props.showUser.sign_id}`}>{this.props.showUser.sign.name}</Link></h2>
                 <h3>Bio: {this.props.showUser.bio}</h3>
             </div>
-        )}else{
+        )} else{
             return null
         }
     }
