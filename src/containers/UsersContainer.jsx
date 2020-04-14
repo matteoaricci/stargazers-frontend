@@ -1,8 +1,8 @@
 import React from 'react'
-import SignCard from '../components/SignCard'
+import UserCard from '../components/UserCard'
 import Searchbar from '../components/Searchbar'
 
-class SignsContainer extends React.Component {
+class UsersContainer extends React.Component {
     constructor() {
         super()
         this.state = {
@@ -16,16 +16,16 @@ class SignsContainer extends React.Component {
         })
     }
 
-    render() {
-        return (
+    render () {
+        return(
             <div>
                 <Searchbar onChange={this.onChange} />
-                <div className="card-columns signs-container">
-                    {this.props.signs.filter(sign => sign.name.toLowerCase().includes(this.state.searchTerm)).map(sign => <SignCard sign={sign} key={sign.name}/>)}
+                <div className= "card-columns users-container">
+                        {this.props.registeredUsers.filter(u => u.name.toLowerCase().includes(this.state.searchTerm)).map(user => <UserCard user = {user} key = {user.id}/>)}
                 </div>
             </div>
         )
     }
 }
 
-export default SignsContainer
+export default UsersContainer

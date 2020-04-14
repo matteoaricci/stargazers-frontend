@@ -12,7 +12,7 @@ class SignCard extends React.Component {
                     <img class="card-img-top sign-image" src={this.props.sign.image} alt={this.props.sign.name} />
                 <div class="card-body">
                     <h5 class="card-title">{this.props.sign.name}</h5>
-                    <p class="card-text">{this.props.sign.description.substring(0, 200) + "..."}</p>
+                    {/* <p class="card-text">{this.props.sign.description.substring(0, 100) + "..."}</p> */}
                 </div>
             </div>
         )

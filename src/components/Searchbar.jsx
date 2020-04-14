@@ -2,20 +2,11 @@ import React from 'react'
 
 class Searchbar extends React.Component {
 
-    constructor() {
-        super()
-        this.state = {
-            searchTerm: ""
-        }
-    }
-
-    onChange = () => {
-
-    }
-
     render() {
         return (
-            <div><input onChange={this.onChange} name="searchTerm" placeholder="filter your search"/></div>
+            <div><input onChange={(e) => this.props.onChange(e)} name="searchTerm" placeholder="filter by search term"/></div>
         )
     }
 }
+
+export default Searchbar

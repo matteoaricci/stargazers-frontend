@@ -27,7 +27,7 @@ class SignShowPage extends React.Component {
                     <p>
                         {this.getDates(this.props.sign)}
                     </p>
-                    <div>
+                    <div className="descriptions">
                         {this.props.sign.description}
                     </div>
                 </div>

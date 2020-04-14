@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 class Profile extends React.Component {
     
@@ -26,7 +27,7 @@ class Profile extends React.Component {
         return (
             <div>
                 <h1>{this.props.user.name}'s Profile</h1>
-                <h2>Sign: {this.props.userSign.name}</h2>
+                <h2>Sign: <Link to={`/signs/${this.props.userSign.id}`}>{this.props.userSign.name}</Link></h2>
                 <h2>{this.props.user.bio}</h2>
                 <h4>Favorite Planets:</h4>
                     <div>

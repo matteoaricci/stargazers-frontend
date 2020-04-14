@@ -14,11 +14,14 @@ import SignShowPage from './containers/SignShowPage'
 import CreatePage from './containers/CreatePage';
 import Signup from './components/Signup'
 import SignsContainer from './containers/SignsContainer'
+import UsersContainer from './containers/UsersContainer'
+import UserShowPage from './containers/UserShowPage'
 
 class App extends React.Component {
   constructor() {
     super()
     this.state = {
+      registeredUsers: [],
       planets: [],
       constellations: [],
       signs: [],
@@ -60,6 +63,10 @@ class App extends React.Component {
     .then(resp => resp.json())
     .then(signs => this.setState({signs: signs}))
 
+    fetch("http://localhost:3000/users")
+    .then(resp => resp.json())
+    .then(allUsers => this.setState({registeredUsers: allUsers}))
+
     fetch("http://localhost:3000/favorite_planets")
     .then(resp => resp.json())
     .then(favplanets => this.setState({favorite_planets: favplanets}))
@@ -85,6 +92,10 @@ class App extends React.Component {
                       let planetId = parseInt(props.match.params.id)
                       let foundPlanet = this.state.planets.find(p => p.id === planetId)
                       return <PlanetShowPage user={this.state.user} routerProps = {props} planet = {foundPlanet}/>}}/>
+          <Route exact path = "/users/:id" render = {(props) => {
+                      let userId = parseInt(props.match.params.id)
+                      let foundUser = this.state.registeredUsers.find(u => u.id === userId)
+                      return <UserShowPage currentUser={this.state.user} showUser = {foundUser} />}}/>
           <Route exact path = "/constellations/:id" render = {(props) => {
                       let constellationId = parseInt(props.match.params.id)
                       let foundConstellation = this.state.constellations.find(c => c.id === constellationId)
@@ -95,6 +106,7 @@ class App extends React.Component {
                       return <SignShowPage sign = {foundSign}/>}}/>
           <Route exact path = "/signs" render = {() => <SignsContainer signs = {this.state.signs}/>} />
           <Route exact path = "/profile" render = {() => <Profile userSign = {this.state.userSign} user={this.state.user} favConstellations={this.state.favorite_constellations.filter(favConst => favConst.user_id === this.state.user.id)} favPlanets={this.state.favorite_planets.filter(favplanet => favplanet.user_id === this.state.user.id)}/> }/>
+          <Route exact path = "/users" render = {() => <UsersContainer registeredUsers = {this.state.registeredUsers}/>} />
           <Route exact path = "/signup" render= {() => (this.state.user ? <Redirect to="/profile"/> : <Signup saveLoginDetails = {this.saveLoginDetails} handleSignup={this.handleSignup} signs={this.state.signs} user={this.state.user}/>)}/>
           
         </Switch>

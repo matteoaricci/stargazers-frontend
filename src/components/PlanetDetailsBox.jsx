@@ -4,6 +4,7 @@ const PlanetDetailsBox = (props) => {
     const handleClick = (e) => {
         e.preventDefault();
         console.log(props)
+        if (props.user){
         fetch('http://localhost:3000/favorite_planets', {
             method: 'post',
             headers: {
@@ -15,11 +16,15 @@ const PlanetDetailsBox = (props) => {
         })
         }).then(resp => resp.json())
         .then(favorite => console.log(favorite))
+        }else{
+            alert("Please login to add favorites")
+            window.location = `http://localhost:3001/login`
+        }
     }
     
     return (
         <div>
-            <h2>Description: {props.planet.description}</h2>
+            <p className="descriptions">{props.planet.description}</p>
             <button onClick={handleClick}>Add to Favorites!</button>
         </div>
         )

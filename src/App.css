@@ -64,6 +64,10 @@ html, body {
   margin: 5%;
 }
 
+.users-container {
+  margin: 5%;
+}
+
 .clickable {
   cursor: pointer;
 }
@@ -88,4 +92,35 @@ html, body {
 
 .delete-buttons {
   border-radius: 50%;
+}
+
+.planet-card-images {
+  max-height: 200px;
+}
+
+.descriptions {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.constellation-show-images {
+  max-width: 90%;
+}
+
+a:hover {
+  color: #fdec6e;
+  text-shadow:0px 0px 30px #fdec6e;
+  -moz-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+
+.hover-glow {
+  color: #fdec6e;
+  text-shadow:0px 0px 30px #fdec6e;
+  -moz-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
 }
