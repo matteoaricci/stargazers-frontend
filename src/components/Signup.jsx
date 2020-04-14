@@ -65,11 +65,13 @@ class Signup extends React.Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-
+        if(event.target.birthday.value === ""){
+            alert("Please enter your birthday.")
+        }else{
         let yearMonthDay = event.target.birthday.value.split("-")
         this.figureOutSign(yearMonthDay[1], yearMonthDay[2])
         let newSignId = this.figureOutSign(yearMonthDay[1], yearMonthDay[2]).id
-
+        
         let payload = {name: this.state.name, bio: this.state.bio, username: this.state.username, birth_month: yearMonthDay[1], birth_day: yearMonthDay[2], sign_id: newSignId, password: event.target.password.value}
 
         fetch("http://localhost:3000/users", {
@@ -81,7 +83,15 @@ class Signup extends React.Component {
             body: JSON.stringify(payload)
         })
         .then(resp => resp.json())
-        .then(json => console.log(json))
+        .then(json => {
+            if (json.error){
+              alert(json.message)
+            } else {
+              this.props.saveLoginDetails(json.user, json.sign)
+              localStorage.setItem('jwt', json.token)
+            }
+          })
+        }
     }
 }
 

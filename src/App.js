@@ -88,17 +88,22 @@ class App extends React.Component {
           <Route exact path = "/constellations/:id" render = {(props) => {
                       let constellationId = parseInt(props.match.params.id)
                       let foundConstellation = this.state.constellations.find(c => c.id === constellationId)
-                      return <ConstellationShowPage constellation = {foundConstellation}/>}}/>
+                      return <ConstellationShowPage constellation = {foundConstellation} user={this.state.user}/>}}/>
           <Route exact path = "/signs/:id" render = {(props) => {
                       let signId = parseInt(props.match.params.id)
                       let foundSign = this.state.signs.find(s => s.id === signId)
                       return <SignShowPage sign = {foundSign}/>}}/>
           <Route exact path = "/signs" render = {() => <SignsContainer signs = {this.state.signs}/>} />
           <Route exact path = "/profile" render = {() => <Profile userSign = {this.state.userSign} user={this.state.user} favConstellations={this.state.favorite_constellations.filter(favConst => favConst.user_id === this.state.user.id)} favPlanets={this.state.favorite_planets.filter(favplanet => favplanet.user_id === this.state.user.id)}/> }/>
-          <Route exact path = "/signup" render= { () => <Signup handleSignup={this.handleSignup} signs={this.state.signs} user={this.state.user} /> } />
+          <Route exact path = "/signup" render= {() => (this.state.user ? <Redirect to="/profile"/> : <Signup saveLoginDetails = {this.saveLoginDetails} handleSignup={this.handleSignup} signs={this.state.signs} user={this.state.user}/>)}/>
+          
         </Switch>
       </div>
     );
+  }
+
+  saveLoginDetails = (user, sign) => {
+    this.setState({user: user, userSign: sign})
   }
 
   handleLoginSubmit= (event) => {
@@ -115,18 +120,19 @@ class App extends React.Component {
       })
     })
     .then(resp=>resp.json())
-    .then(user => {
+    .then(json => {
       this.setState({
         typedUsername: "",
         typedPassword: ""
       })
-      if (user.error){
-        alert(user.message)
+      if (json.error){
+        alert(json.message)
       } else {
         this.setState({
-          user: user.user_data
+          user: json.user,
+          userSign: json.sign
         })
-        localStorage.setItem('jwt', user.token)
+        localStorage.setItem('jwt', json.token)
       }
     })
   }
