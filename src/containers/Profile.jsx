@@ -5,7 +5,7 @@ class Profile extends React.Component {
 
     
     render() {
-        if (this.props.user){
+        if (this.props.user && this.props.userSign){
         return (
             <div>
                 <h1>{this.props.user.name}'s Profile</h1>
