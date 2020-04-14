@@ -14,6 +14,7 @@ import SignShowPage from './containers/SignShowPage'
 import CreatePage from './containers/CreatePage';
 import Signup from './components/Signup'
 import SignsContainer from './containers/SignsContainer'
+import ConversationsContainer from './containers/ConversationsContainer';
 
 class App extends React.Component {
   constructor() {
@@ -27,7 +28,8 @@ class App extends React.Component {
       user: null,
       favorite_planets: [],
       favorite_constellations: [],
-      userSign: null
+      userSign: null,
+      conversations: []
     }
   }
 
@@ -68,6 +70,10 @@ class App extends React.Component {
     .then(resp => resp.json())
     .then(favconst => this.setState({favorite_constellations: favconst}))
 
+    fetch("http://localhost:3000/conversations")
+    .then(resp => resp.json())
+    .then(conver => this.setState({conversations: conver}))
+
   }
 
   render() {
@@ -96,7 +102,7 @@ class App extends React.Component {
           <Route exact path = "/signs" render = {() => <SignsContainer signs = {this.state.signs}/>} />
           <Route exact path = "/profile" render = {() => <Profile userSign = {this.state.userSign} user={this.state.user} favConstellations={this.state.favorite_constellations.filter(favConst => favConst.user_id === this.state.user.id)} favPlanets={this.state.favorite_planets.filter(favplanet => favplanet.user_id === this.state.user.id)}/> }/>
           <Route exact path = "/signup" render= {() => (this.state.user ? <Redirect to="/profile"/> : <Signup saveLoginDetails = {this.saveLoginDetails} handleSignup={this.handleSignup} signs={this.state.signs} user={this.state.user}/>)}/>
-          
+          <Route exact path = "/conversations" render ={() => <ConversationsContainer conversations={this.state.conversations}/>} />
         </Switch>
       </div>
     );
