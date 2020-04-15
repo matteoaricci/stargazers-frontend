@@ -8,8 +8,9 @@ class UserCard extends React.Component {
 
     render() {
         return(
-            <div className = "card-columns clickable" onClick={this.handleClick}>
-                <h1>{this.props.user.name}</h1>
+            <div className = "clickable card" onClick={this.handleClick}>
+                <img className="avatar" src={"data:image/png;base64," + this.props.user.image} />
+                <h2>{this.props.user.name}</h2>
             </div>
         )
     }

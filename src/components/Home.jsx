@@ -7,7 +7,7 @@ class Home extends React.Component {
     constructor() {
         super()
         this.state = {
-            currentImage: "the-big-dipper-pixel"
+            currentImage: "welcome-alone"
         }
     }
 
@@ -15,24 +15,21 @@ class Home extends React.Component {
         return (
             <div>
                 <div className="welcome-page">
-                    <h1 id="welcome-banner">Welcome!</h1>
+                    <h1 id="welcome-banner">Welcome Aboard!</h1>
                     <div onMouseEnter = {this.handleMouseEnter} onMouseLeave = {this.handleMouseLeave}> 
-                        <img className="front-page-constellations" src={require(`../assets/pictures/constellations/${this.state.currentImage}.png`)} alt = "big dipper"/>
+                        <img className="front-page-constellations" src={require(`../assets/pictures/${this.state.currentImage}.png`)} alt = "welcome"/>
                     </div>
-                </div>
-                <div>
-                    {/* <img src={require("../assets/pictures/uranus-pixel.png")} alt=""/> */}
                 </div>
             </div>
         )
     }
 
     handleMouseEnter = () => {
-        this.setState({currentImage: "the-big-dipper-pixel-connected"})
+        this.setState({currentImage: "welcome-together"})
     }
 
     handleMouseLeave = () => {
-        this.setState({currentImage: "the-big-dipper-pixel"})
+        this.setState({currentImage: "welcome-alone"})
     }
 }
 

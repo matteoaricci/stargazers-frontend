@@ -48,7 +48,7 @@ class Profile extends React.Component {
     onFileSubmit = (e) => {
         e.preventDefault()
         const preview = document.getElementById('profile-picture');
-        // console.log("binary string:", this.state.base64TextString)
+        console.log("binary string:", this.state.base64TextString)
         
         let payload = {image: this.state.base64TextString}
         fetch(`http://localhost:3000/users/${this.props.user.id}`, {
@@ -77,10 +77,10 @@ class Profile extends React.Component {
         if (this.props.user && this.props.userSign){
         return (
             <div>
+                {this.props.user.image !== null ? <img src={"data:image/png;base64," + this.props.user.image} alt={this.props.user.name} id="profile-picture" className="rounded profile-pictures left"/> : <img src="" id="profile-picture"/>}
                 <h1 className="profile-banner">Hello Cosmonaut {this.props.user.name}</h1>
                 <h3 className="profile-sign">Star Crossed <Link to={`/signs/${this.props.userSign.id}`}>{this.props.userSign.name}</Link></h3>
                 <h3 className="profile-bio">{this.props.user.bio}</h3>
-                {this.props.user.image !== null ? <img src={"data:image/png;base64," + this.props.user.image} alt={this.props.user.name} id="profile-picture" className="rounded profile-pictures left"/> : <img src="" id="profile-picture"/>}
                 <div className="astral-collection">
                     <h2 className="astral-banner">Astral Collections</h2>
                     <h4 className="fav-planets-list">Favorite Planets:</h4>
