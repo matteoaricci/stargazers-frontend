@@ -1,11 +1,13 @@
 import React from 'react'
 
 const PlanetDetailsBox = (props) => {
+    let userFavPlanets = props.favPlanets.filter(favPlan => favPlan.user_id === props.user.id)
     const handleClick = (e) => {
         e.preventDefault();
+        
         console.log(props)
         if (props.user){
-            if (props.favPlanets.find(planetObj => planetObj.planet_id === props.planet.id)){
+            if (userFavPlanets.find(planetObj => planetObj.planet_id === props.planet.id)){
                 alert("You've already favorited this planet!")
             }else{
         fetch('http://localhost:3000/favorite_planets', {

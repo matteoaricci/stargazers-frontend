@@ -1,11 +1,11 @@
 import React from 'react'
 
 const ConstellationDetailsBox = (props) => {
-
+    let userFavCons = props.favConstellations.filter(favCons => favCons.user_id === props.user.id)
     const handleClick = (e, props) => {
         console.log(props)
         if (props.user){
-            if (props.favConstellations.find(constellationObj => constellationObj.constellation_id === props.constellation.id)){
+            if (userFavCons.find(constellationObj => constellationObj.constellation_id === props.constellation.id)){
                 alert("You've already favorited this constellation!")
             }else {
         let payload = {constellation_id: props.constellation.id, user_id: props.user.id}
