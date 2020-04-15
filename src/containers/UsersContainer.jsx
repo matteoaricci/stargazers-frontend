@@ -10,7 +10,6 @@ class UsersContainer extends React.Component {
             searchTerm: "",
             signSearch: "",
             planetSearch: "",
-            planetObjSearch: {},
             constellationSearch: ""
         }
     }
@@ -22,13 +21,11 @@ class UsersContainer extends React.Component {
     }
 
     onSignChange = (e) => {
-        this.setState({signSearch: parseInt(e.target.value)})
+        this.setState({signSearch: e.target.value})
     }
 
     onPlanetChange = (e) => {
-        this.setState({
-            planetSearch: parseInt(e.target.value)
-        })
+        this.setState({planetSearch: e.target.value})
     }
 
     onConstellationChange = (e) => {
@@ -42,13 +39,36 @@ class UsersContainer extends React.Component {
                         .filter(user => (user.sign.name.includes(this.state.signSearch)))
         console.log(filteredUsers)
         if (this.state.planetSearch !== "") {
-            console.log("not empty")
-            filteredUsers = filteredUsers.filter(user => user.planets.includes(this.props.planets.find(planet => planet.id === parseInt(this.state.planetSearch))))
+            let helperArray= filteredUsers
+            filteredUsers = []
+            let planetId = parseInt(this.state.planetSearch)
+            let searchedPlanet = this.props.planets.find(planet => planet.id === planetId)
+            helperArray.forEach(user =>{
+                user.planets.forEach(planet => {
+                    if (planet.name === searchedPlanet.name){
+                        filteredUsers.push(user)
+                    }
+                })
+            })
         }
+        if (this.state.constellationSearch !== ""){
+            let anotherHelperArray = filteredUsers
+            filteredUsers = []
+            let constellationId = parseInt(this.state.constellationSearch)
+            let searchedConstellation = this.props.constellations.find(constellation => constellation.id === constellationId)
+            anotherHelperArray.forEach(user => {
+                user.constellations.forEach(constellation => {
+                    if (constellation.name === searchedConstellation.name) {
+                        filteredUsers.push(user)
+                    }
+                })
+            })
+        }        
          return filteredUsers               
     }
 
     render () {
+        if (this.props.registeredUsers){
         return(
             <div>
                 <Searchbar onChange={this.onChange} placeholderPhrase="Search Users by Name" />
@@ -59,12 +79,10 @@ class UsersContainer extends React.Component {
                         {this.filterFunction().map(user => <UserCard user = {user} key = {user.id}/>)}
                 </div>
             </div>
-        )
+        )}else{
+            return null
+        }
     }
 }
-
-
-{/* user.favorite_planets.forEach(favPlanet => favPlanet.planet_id === this.state.planetSearch)
- return user}) */}
 
 export default UsersContainer
