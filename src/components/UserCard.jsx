@@ -9,7 +9,7 @@ class UserCard extends React.Component {
     render() {
         return(
             <div className = "card-columns clickable" onClick={this.handleClick}>
-                {this.props.user.name}
+                <h1>{this.props.user.name}</h1>
             </div>
         )
     }
