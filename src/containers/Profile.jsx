@@ -103,7 +103,7 @@ class Profile extends React.Component {
                     <input type="submit"/>
                 </form>
                 <br></br>
-                <button onClick={() => window.location = "/profile/edit"}>Edit Profile</button>
+                <button className="delete_account_button" onClick={() => this.props.deleteAccount(this.props.user)}>Delete Account</button>
             </div>
         )}else{
             return null

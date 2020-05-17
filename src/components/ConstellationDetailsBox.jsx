@@ -1,8 +1,8 @@
 import React from 'react'
 
 const ConstellationDetailsBox = (props) => {
-    let userFavCons = props.favConstellations.filter(favCons => favCons.user_id === props.user.id)
     const handleClick = (e, props) => {
+        let userFavCons = props.favConstellations.filter(favCons => favCons.user_id === props.user.id)
         console.log(props)
         if (props.user){
             if (userFavCons.find(constellationObj => constellationObj.constellation_id === props.constellation.id)){
@@ -26,10 +26,12 @@ const ConstellationDetailsBox = (props) => {
 
     return(
         <div>
-            <h1>{props.constellation.name}</h1>
-            <p className="descriptions">{props.constellation.description}</p>
-            {
-            <button onClick={(e) => handleClick(e, props)}>Add To Favorites!</button>}
+            <div>
+                <h1>{props.constellation.name}</h1>
+                <p className="descriptions">{props.constellation.description}</p>
+                {
+                <button onClick={(e) => handleClick(e, props)}>Add To Favorites!</button>}
+            </div>
         </div>
     )
 }

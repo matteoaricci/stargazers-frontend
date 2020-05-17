@@ -18,17 +18,17 @@ class Signup extends React.Component {
                 <h1>Sign up</h1>
                 <form onSubmit = {this.handleSubmit}>
                     <label>Name:</label><br></br>
-                    <input onChange={this.onChange} name="name" placeholder="name"/><br></br>
+                    <input onChange={this.onChange} className="name_input" name="name" placeholder="name"/><br></br>
                     <label>Bio:</label><br></br>
-                    <textarea onChange={this.onChange} name="bio" placeholder="write a short bio"/><br></br>
+                    <textarea onChange={this.onChange} className="bio_input" name="bio" placeholder="write a short bio"/><br></br>
                     <label>Birthday:</label><br></br>
-                    <input type="date" name="birthday"/>
+                    <input className="birthdate_input" type="date" name="birthday"/>
                     <br></br>
                     <label>Username:</label><br></br>
-                    <input onChange={this.onChange} name="username" placeholder="username"/><br></br>
+                    <input onChange={this.onChange} name="username" className="username_input" placeholder="username"/><br></br>
                     <label>Password:</label><br></br>
-                    <input onChange={this.onChange} type="password" name="password" placeholder="password"/><br></br>
-                    <input type='submit' />
+                    <input onChange={this.onChange} type="password" className="password_input" name="password" placeholder="password"/><br></br>
+                    <input className="submit_button" type='submit' />
                 </form>
             </div>
         )

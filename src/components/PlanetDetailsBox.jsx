@@ -1,8 +1,8 @@
 import React from 'react'
 
 const PlanetDetailsBox = (props) => {
-    let userFavPlanets = props.favPlanets.filter(favPlan => favPlan.user_id === props.user.id)
     const handleClick = (e) => {
+        let userFavPlanets = props.favPlanets.filter(favPlan => favPlan.user_id === props.user.id)
         e.preventDefault();
         
         console.log(props)

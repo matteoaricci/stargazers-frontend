@@ -7,12 +7,12 @@ class Login extends React.Component {
             <h1>Login</h1>
             <form onSubmit={this.props.handleLoginSubmit}>
             <label>Username:</label>
-            <input name= "typedUsername" type="text" value ={this.props.typedUsername} onChange = {this.props.handleOnChange}></input>
+            <input className="username_input" name= "typedUsername" type="text" value ={this.props.typedUsername} onChange = {this.props.handleOnChange}></input>
             <label>Password:</label>
-            <input name="typedPassword" type="password" value={this.props.typedPassword} onChange={this.props.handleOnChange}></input>
-            <input type="submit"></input>
+            <input name="typedPassword" className="password_input" type="password" value={this.props.typedPassword} onChange={this.props.handleOnChange}></input>
+            <input type="submit" className="submit_button"></input>
             </form>
-            <button onClick = {this.handleOnClick}>Create Account</button>
+            <button onClick = {this.handleOnClick} className="create_account_button">Create Account</button>
         </div>)
     }
     handleOnClick = () => {

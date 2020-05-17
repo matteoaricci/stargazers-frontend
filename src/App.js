@@ -77,6 +77,18 @@ class App extends React.Component {
 
   }
 
+  deleteAccount = (user) => {
+    fetch(`http://localhost:3000/users/${user.id}`, {
+      method: "DELETE"
+    })
+    .then(resp => resp.json())
+    .then(json => {
+      localStorage.removeItem("jwt")
+      window.location = '/login'
+      console.log(json)
+    })
+  }
+
   render() {
     return (
       <div className="App">
@@ -105,7 +117,7 @@ class App extends React.Component {
                       let foundSign = this.state.signs.find(s => s.id === signId)
                       return <SignShowPage sign = {foundSign}/>}}/>
           <Route exact path = "/signs" render = {() => <SignsContainer signs = {this.state.signs}/>} />
-          <Route exact path = "/profile" render = {() => <Profile userSign = {this.state.userSign} user={this.state.user} favConstellations={this.state.favorite_constellations.filter(favConst => favConst.user_id === this.state.user.id)} favPlanets={this.state.favorite_planets.filter(favplanet => favplanet.user_id === this.state.user.id)}/> }/>
+          <Route exact path = "/profile" render = {() => <Profile deleteAccount={this.deleteAccount} userSign = {this.state.userSign} user={this.state.user} favConstellations={this.state.favorite_constellations.filter(favConst => favConst.user_id === this.state.user.id)} favPlanets={this.state.favorite_planets.filter(favplanet => favplanet.user_id === this.state.user.id)}/> }/>
           <Route exact path = "/users" render = {() => <UsersContainer registeredUsers = {this.state.registeredUsers} signs = {this.state.signs} planets = {this.state.planets} constellations = {this.state.constellations}/> } />
           <Route exact path = "/signup" render= {() => (this.state.user ? <Redirect to="/profile"/> : <Signup saveLoginDetails = {this.saveLoginDetails} handleSignup={this.handleSignup} signs={this.state.signs} user={this.state.user}/>)}/>
           
