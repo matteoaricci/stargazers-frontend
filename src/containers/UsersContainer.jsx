@@ -76,7 +76,7 @@ class UsersContainer extends React.Component {
                 <UserDropdownFilter handleOnChange = {this.onPlanetChange} searchBy = "id" searchOptions = {this.props.planets} searchName = "Favorite Planets" searchValue = {this.state.planetSearch}/>
                 <UserDropdownFilter handleOnChange = {this.onConstellationChange} searchBy = "id" searchOptions = {this.props.constellations} searchName = "Favorite Constellations" searchValue = {this.state.constellationSearch} />
                 <div className= "card-columns users-container">
-                        {this.filterFunction().map(user => <UserCard user = {user} key = {user.id}/>)}
+                        {this.filterFunction().sort((a, b) => a.name > b.name? 1 : -1).map(user => <UserCard user = {user} key = {user.id}/>)}
                 </div>
             </div>
         )}else{
